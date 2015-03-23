@@ -195,3 +195,9 @@ class TestSeriaRoundTrips(object):
             _a.seek(0)
             _c.seek(0)
             assert _a.read() == _c.read()
+
+
+class TestSeriaDumpStrToInt(object):
+    def test_input_must_be_flo(self):
+        with pytest.raises(Serializer.Error):
+            _ = seria.load("somestring")

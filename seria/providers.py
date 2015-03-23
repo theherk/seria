@@ -87,10 +87,10 @@ class XML(object):
     @staticmethod
     def postprocessor(path, key, value):
         try:
-            if isinstance(key, basestring):
-                key = str(key)
+            if isinstance(key, (basestring, builtin_str, str)):
+                key = builtin_str(key)
             if isinstance(value, basestring):
-                value = str(value)
+                value = builtin_str(value)
             value = str_to_num(value)
             return key, value
         except (ValueError, TypeError):
